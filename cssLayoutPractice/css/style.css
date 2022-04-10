@@ -1,0 +1,403 @@
+/* ----------------------Universal Methods--------------------------------- */
+
+:root {
+  --theme: red;
+}
+.show {
+  display: block !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+/* ----------------------Universal Layouts (g-)--------------------------------- */
+
+.g-ant {
+  display: flex;
+}
+
+.g-ant-sider {
+  flex-shrink: 0;
+  background: #00152a;
+  width: 208px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 3;
+}
+
+.g-ant-sider-wrap {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.g-ant-sider-wrap-fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: inherit;
+  overflow: hidden;
+}
+
+.g-ant-sider-closed {
+  width: 48px;
+}
+
+.g-ant-sider-head {
+  flex-shrink: 0;
+}
+
+.g-ant-sider-main {
+  flex-grow: 1;
+  overflow: hidden auto;
+}
+/* custom scrollbar */
+.g-ant-sider-main::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.g-ant-sider-main::-webkit-scrollbar-thumb {
+  background-color: #51606d;
+  border-radius: 3px;
+}
+
+.g-ant-sider-main::-webkit-scrollbar-track {
+  background-color: #263849;
+  border-radius: 3px;
+}
+
+.g-ant-sider-foot {
+  flex-shrink: 0;
+}
+
+.g-ant-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f1f2f6;
+}
+
+.g-ant-main-head {
+  height: 48px;
+  background: #fff;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 0 1px 4px #ccc;
+  column-gap: 20px;
+  padding: 0 20px;
+}
+
+.g-ant-main-head-fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.g-ant-main-head-fixed:not(.hide) + .g-ant-main-main {
+  margin-top: 48px;
+}
+.g-ant-main-head > span {
+  margin-right: -15px;
+}
+
+.g-ant-main-main {
+  flex-grow: 1;
+}
+
+.g-ant-main-foot {
+  margin-top: 70px;
+  margin-bottom: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #868782;
+}
+
+.g-ant-main-foot a {
+  color: inherit;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* ----------------------Universal Modules (m-)--------------------------------- */
+
+.m-logo {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.m-logo > img {
+  width: 32px;
+  height: 32px;
+}
+
+.m-logo > h1 {
+  font-weight: 600;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+.m-logo2 {
+  display: none;
+  align-items: center;
+  margin-right: auto;
+}
+
+.m-logo2 > img {
+  width: 32px;
+  height: 32px;
+}
+
+.m-logo2 > .u-bar {
+  color: inherit;
+}
+
+.g-ant-sider-closed .m-logo {
+  padding: 16px 8px;
+}
+
+.m-menu {
+  color: #8c959e;
+  cursor: pointer;
+}
+
+.m-menu-title {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  column-gap: 10px;
+  padding: 0 15px;
+}
+
+.m-menu-title > span {
+  margin-right: auto;
+}
+
+.m-menu-sub {
+  display: none;
+}
+
+.m-menu-sub > li {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 45px;
+}
+
+.m-menu-selected .m-menu-title {
+  color: #fff;
+}
+
+.m-menu-selected .m-menu-sub {
+  display: block;
+}
+
+.m-menu-sub-selected {
+  color: #fff;
+  background-color: var(--theme);
+}
+
+.g-ant-sider-closed .m-menu-title {
+  transform: scale(1.5);
+}
+
+.g-ant-sider-closed .m-menu-sub {
+  display: none;
+}
+
+.g-ant-sider-closed span {
+  display: none;
+}
+
+.g-ant-sider-closed i:nth-of-type(2) {
+  display: none;
+}
+
+.m-card {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  font-size: 16px;
+}
+
+.m-card-title {
+  flex-shrink: 0;
+  height: 57px;
+  border-bottom: 1px solid #f1f1f1;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.m-card-body {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.m-setting {
+  width: 300px;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  right: -300px;
+  top: 0;
+  padding: 0 15px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+.m-setting-open {
+  right: 0;
+}
+.m-setting-open ~ .u-mask {
+  display: block;
+}
+
+.m-setting-bar {
+  width: 48px;
+  height: 48px;
+  border-radius: 2px;
+  background: var(--theme);
+  position: absolute;
+  left: -48px;
+  top: calc(50% - 24px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.m-setting-bar > i {
+  font-size: 25px;
+}
+
+.m-setting-item {
+  margin: 50px 0;
+}
+
+.m-setting-theme {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.m-setting-item-toggle > li {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+/* ----------------------Universal Units (u-)--------------------------------- */
+
+.u-bar {
+  color: #fff;
+  font-size: 20px;
+  display: block;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.u-blue,
+.u-red,
+.u-yellow,
+.u-orange,
+.u-green,
+.u-purple {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.u-blue {
+  background: #188efc;
+}
+
+.u-red {
+  background: #f5212d;
+}
+
+.u-yellow {
+  background: #fbae14;
+}
+
+.u-green {
+  background: #53c41a;
+}
+.u-purple {
+  background: #722ed1;
+}
+.u-orange {
+  background: #fe531f;
+}
+.u-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #f0f0f0;
+  margin: 25px 0;
+}
+.u-switch {
+  width: 28px;
+  height: 16px;
+  border-radius: 100px;
+  background: var(--theme);
+  cursor: pointer;
+}
+.u-switch-close {
+  background: rgba(0, 0, 0, 0.25);
+}
+.u-switch-close .u-switch-handle {
+  left: 14px;
+}
+.u-switch-handle {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+  left: 2px;
+  top: 2px;
+}
+.u-mask {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 5;
+}
+/* ----------------------Responsive Web Design--------------------------------- */
+
+@media screen and (max-width: 1200px) {
+}
+@media screen and (max-width: 992px) {
+  .m-logo2 {
+    display: flex;
+  }
+  .g-ant-sider {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+  }
+  .g-ant-sider:is(.show) + .u-mask {
+    display: block;
+  }
+}
+@media screen and (max-width: 768px) {
+}
